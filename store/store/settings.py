@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+
 # import os
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'store.settings')
 
@@ -28,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.humanize',
 
     'allauth',
     'allauth.account',
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     'products',
     'django_extensions',
     'users',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -171,7 +174,7 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'ermilovadm@yandex.ru'
 EMAIL_HOST_PASSWORD = 'djlfhmtskxaqnxjv'
 EMAIL_USE_SSL = True
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Oauth
 AUTHENTICATION_BACKENDS = [
@@ -190,7 +193,12 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-#Celery
+# Celery
 
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+
+# Stripe
+
+STRIPE_PUBLIC_KEY = 'pk_test_51Mfi2lGMbTIaaFLiNcv8gDDstTLFhDeVP7D8XB1xDAASceA5w2LDYXIZr4kb1OVeHlpRuJIa5e9GAQdlzGufHnhZ00016mwOzF'
+STRIPE_SECRET_KEY = 'sk_test_51Mfi2lGMbTIaaFLiNDDzg9kKlbiTwRiTqpJu1dj9fd7PzOSh9IYc9pIDTz1hH164864ToRUBOaEcCX48HKv6wOdc00sD4iYqdz'
